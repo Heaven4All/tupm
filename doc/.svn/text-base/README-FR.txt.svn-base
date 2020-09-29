@@ -1,0 +1,61 @@
+************************************************************************
+* TUPLinux Client version 1.1 A
+* http://www.uptimeprj.com
+* Developpeur : Sebastien TUGS (uptimeprj@nextworlds.com)
+************************************************************************
+TELECHARGEMENTS : http://www.uptimeprj.com/
+
+0/ TUP : Tugs Uptime Project
+
+TUP s'inspire du projet fermé en Mars 2007 connu sous le nom d'Uptime Project (http://www.uptime-project.net/).
+Le but est de conserver, au sein d'une base, un historique des "uptime" soit le temps maximal qu'une machine restera allumée.
+
+
+1/ PRE-REQUIS 
+
+- SOLARIS 10 Intel ou Sparc
+- MAC OS X
+- LINUX x86 (Testé sur Debian, OpenSuse, IPCOP, Redhat, Fedora, Ubuntu, Mandriva)
+- FREEBSD
+
+- LibSSL
+- LibCrypto
+
+2/ COMPILATION
+
+- Avec Liaison SSL :
+gcc -Wall -O9 TUPLinux-vXX.c -o TUPLinux -lssl && strip TUPLinux
+
+- En statique avec SSL (Remplacer les chemins vers libssl et libcrypto) :
+gcc -Wall TUPLinux-RC3.c -o TUPLinux /usr/lib/libssl.a /usr/lib/libcrypto.a
+
+
+3/ INSTALLATION
+
+Placez le programme TUPLinux dans un répertoire de votre choix avec son fichier TUP.conf. 
+Vous pouvez également disposer le fichier TUP.conf dans un autre répertoire (/etc/TUPLinux/TUP.conf par exemple),
+sous réserve de faire appel au programme en passant en paramètre le chemin complet vers le fichier TUP.conf 
+
+Exemple: /REP_INSTALL/TUPLinux /etc/TUPLinux/TUP.conf
+
+Le client TUPLinux n'est pas un démon. Afin d'effectuer un uptime régulier ajouter une entrée dans votre CRON
+
+exemple : */45 * * * * /opt/TUPLinux /etc/TUPLinux/TUP.conf  (Envoi le uptime toutes les 45 minutes)
+
+
+4/ CONFIGURATION
+
+Editez le fichier TUP.conf afin de régler les options suivantes :
+
+TUPUser="utilisateur"    <-- Remplacez par votre compte utilisateur
+TUPPass="mot_de_passe"   <-- Remplacez par votre mot de passe d'accès à votre compte
+TUPMachine="Ma Machine"  <-- Indiquez un nom pour votre machine (15 caractères MAX)
+
+TUPInterface="eth0"      <-- Indiquez l'interface réseau utilisée pour accéder à internet
+
+UseProxy=0               <-- Si vous utilisez un proxy, mettre UseProxy=1
+ProxyHost="192.168.1.1"  <-- Si vous utilisez un proxy, indiquer son adresse ici
+ProxyPort="3128"         <-- Si vous utilisez un proxy, indiquer le port de celui ci
+
+NOTA: Les autres options/lignes du fichier TUP.conf ne doivent pas être modifiées sous peine de rendre le programme inutilisable.
+

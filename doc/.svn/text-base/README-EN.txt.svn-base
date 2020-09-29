@@ -1,0 +1,60 @@
+************************************************************************
+* TUPLinux Client version 1.1 A
+* http://www.uptimeprj.com
+* Developper : Sebastien TUGS (uptimeprj@nextworlds.com)
+************************************************************************
+DOWNLOAD : http://www.uptimeprj.com
+
+0/ TUP : Tugs Uptime Project
+
+TUP is a clone of Uptime Project . This project is no longer available since March 2007 (http://www.uptime-projetc.net)
+The main objective, keep in database best uptimes of machine
+
+1/ WORK ON 
+
+- SOLARIS 10 Intel ou Sparc
+- MAC OS X
+- LINUX x86 (Testé sur Debian, OpenSuse, IPCOP, Redhat, Fedora, Ubuntu, Mandriva)
+- FREEBSD
+
+Require :
+
+- LibSSL
+- LibCrypto
+
+2/ MAKE
+
+- With link on SSL :
+gcc -Wall -O9 TUPLinux-vXX.c -o TUPLinux -lssl && strip TUPLinux
+
+- Static with SSL (Replace path to libssl and libcrypto) :
+gcc -Wall TUPLinux-RC3.c -o TUPLinux /usr/lib/libssl.a /usr/lib/libcrypto.a
+
+3/ INSTALLATION
+
+Extract TUPLinux into any directory with TUP.conf file.
+You can put TUP.conf on other directory than TUPLinux program (/etc/TUPLinux/TUP.conf for exemple), but you must
+give full path (with TUP.conf at end) to TUPLinux when you call it.
+
+Example: /INSTALL_DIR/TUPLinux /etc/TUPLinux/TUP.conf
+
+TUPLinux client is not a daemon. To update your uptime regularly, you can use CRON daemon. Add an entry like this :
+
+example : */45 * * * * /opt/TUPLinux /etc/TUPLinux/TUP.conf  (Send uptime every 45 min)
+
+
+4/ CONFIG
+
+Edit TUP.conf and give following options :
+
+TUPUser="user"    	 <-- Replace by username
+TUPPass="password"       <-- Replace by password account
+TUPMachine="Machine"     <-- Give a name to your machine (15 characters MAX)
+
+TUPInterface="eth0"      <-- Replace by network interface used to go outside
+
+UseProxy=0               <-- if you're behind a proxy, set to UseProxy=1
+ProxyHost="192.168.1.1"  <-- if you're behind a proxy, give ip address here
+ProxyPort="3128"         <-- if you're behind a proxy, give proxy port here
+
+NOTA : Don't modify others options.

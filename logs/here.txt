@@ -1,0 +1,1 @@
+Log directory : use -l /path/to/log/ to change it

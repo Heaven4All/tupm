@@ -1,0 +1,11 @@
+[TMON_DEF]
+
+tmon_name=A_Testing_Monitor
+tmon_type=HC
+tmon_filename=/tmp/1.sh
+tmon_parameters="dummy"
+tmon_service_desc=A Testing monitor
+tmon_order=1
+tmon_isactive=1
+tmon_group=Group1
+tmon_stoponerror=0
