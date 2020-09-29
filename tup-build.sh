@@ -3,4 +3,4 @@
 chmod +x configure
 ./configure
 
-make install
+make clean
