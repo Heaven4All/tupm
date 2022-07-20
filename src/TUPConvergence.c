@@ -24,7 +24,7 @@
  * --------------------------------------------
  * Under Apache Licence. See minIni.c to read licence informations
  * minIni.h is compiled with INI_READONLY option (no write to conf file)
- *
+ * go
  * $Author: lecariboumasque@gmail.com $ . $LastChangedDate: 2011-12-28 19:47:50 +0100 (Wed, 28 Dec 2011) $
  * $Revision: 15 $ .
  * $Id: TUPConvergence.c 15 2011-12-28 18:47:50Z lecariboumasque@gmail.com $
